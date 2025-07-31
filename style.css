@@ -1,0 +1,262 @@
+
+
+body {
+  font-family: poppins;
+  margin: 0;
+  padding: 0;
+}
+.timeRunning {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background-color: rgb(3, 174, 97);
+  z-index: 2;
+  /* animation: runningTime 7s linear 1 forwards; */
+}
+
+
+header {
+  position: absolute;
+  top: 3%;
+  left: 100px;
+  z-index: 2;
+  font-size: 16px;
+}
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background-color 200ms ease-in;
+}
+nav a:hover {
+  cursor: pointer;
+  background-color: rgb(3, 174, 97);
+}
+nav a.active {
+  background-color: rgb(3, 174, 97);
+
+}
+.carousel {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  border-radius: 0;
+  top: 0;
+  left: 0;
+
+}
+
+.item.active {
+  /* width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  top: 0;
+  left: 0; */
+}
+/* .item.active .content {
+  display: block;
+} */
+.item {
+  width: 180px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 85%;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px rgb(29, 29, 29);
+  transform: translateY(-70%);
+  left: 70%;
+  transition: 1s;
+}
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+.item:nth-child(2){
+  left: 45%;
+}
+.item:nth-child(3){
+  left: calc(45% + 200px);
+}
+.item:nth-child(4){
+  left: calc(45% + 400px);
+}
+.item:nth-child(5){
+  left: calc(45% + 600px);
+}
+.content {
+  position: absolute;
+  top: 18%;
+  left: 100px;
+  color: white;
+  font-size: 16px;
+  width: 400px;
+  display: none;
+}
+.list .item:nth-child(2) .content{
+  display: block;
+}
+.content .title, .content .name {
+  font-size: 100px;
+  letter-spacing: 2px;
+  line-height: 100px;
+  font-weight: 800;
+}
+
+.content .title {
+  color:  rgb(3, 174, 97);
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name {
+  text-shadow: 4px 3px 8px white;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+.textAbout {
+  margin: 10px 0 20px 0;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+button {
+  padding: 10px 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+  /* text-transform: uppercase; */
+  border: 2px solid white;
+  transition: background-color 200ms ease-in;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1.1s 1 forwards;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+#subscribe {
+  background-color: rgba(128, 128, 128, 0.5);
+  color: rgb(0, 255, 140);
+  transition: all 200ms ease-in;
+}
+#subscribe:hover {
+  background-color: rgb(3, 174, 97);
+  color: white;
+}
+
+.arrows {
+  position: absolute;
+  top: calc(64% + 100px);
+  left: 100px;
+  display: flex;
+  gap: 10px;
+}
+.arrows button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(3, 174, 97);
+  border: 0;
+  box-shadow: 1px 1px 5px rgb(29, 29, 29);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms ease-in, border 200ms ease-in;
+
+}
+.arrows button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+
+
+@keyframes animate {
+    
+  from{
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+  }
+
+  to{
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
+  }
+}
+
+@keyframes runningTime {
+    
+  from{width: 0%;}
+  to{width: 100%;}
+
+}
+
+@media (max-width: 768px) {
+  header {
+    left: 50px;
+  }
+  nav {
+    gap: 5px;
+    font-size: 14px;
+  }
+  /* nav a {
+    padding: 2px 5px;
+  } */
+  .content {
+    left: 50px;
+  }
+  .content .name, .content .title {
+    font-size: 70px;
+    line-height: 70px;
+  }
+  .arrows {
+    left: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    left: 25px;
+  }
+  nav {
+    gap: 3px;
+    font-size: 14px;
+  }
+  nav a {
+    padding: 2px 5px;
+  }
+  .content {
+    left: 25px;
+    width: 330px;
+  }
+  .content .name, .content .title {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .buttonBlock button {
+    font-size: 16px;
+  }
+  .arrows {
+    left: 25px;
+  }
+}
